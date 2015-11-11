@@ -9,12 +9,20 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
-class LuckyController extends Controller
+//class LuckyController extends Controller
+class LuckyController
 {
+    private $templating;
+
+    public function __construct(EngineInterface $templating)
+    {
+        $this->templating = $templating;
+    }
 
     public function numberAction($count)
     {
@@ -24,10 +32,26 @@ class LuckyController extends Controller
         }
         $numbersList = implode(', ', $numbers);
 
-        return new Response(
-            '<html><body>Lucky numbers: '.$numbersList.'</body></html>'
+        // render per injected templating service
+        return $this->templating->renderResponse(
+            'lucky/number.html.twig',
+            array('luckyNumberList' => $numbersList)
         );
 
+        /*//render über render()-shortcut
+        return $this->render(
+            'lucky/number.html.twig',
+            array('luckyNumberList' => $numbersList)
+        );*/
+
+/*      //render über Container
+        $html = $this->container->get('templating')->render(
+            'lucky/number.html.twig',
+            array('luckyNumberList' => $numbersList)
+        );
+
+        return new Response($html);
+*/
     }
 
 //    public function piNumberAction()

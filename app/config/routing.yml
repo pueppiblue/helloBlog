@@ -7,7 +7,12 @@ home:
     defaults:
       _controller: FrameworkBundle:Template:template
 
+#container routing
+#lucky_number:
+#  path: /lucky/number/{count}
+#  defaults: {_controller: AppBundle:Lucky:number}
 
+#service route
 lucky_number:
   path: /lucky/number/{count}
-  defaults: {_controller: AppBundle:Lucky:number}
+  defaults: {_controller: app.lucky_controller:numberAction}
