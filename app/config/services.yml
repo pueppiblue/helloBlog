@@ -10,4 +10,11 @@ services:
 
   app.lucky_controller:
       class: AppBundle\Controller\LuckyController
-      arguments: ["@templating"]
+      arguments:
+        - @templating
+
+
+  app.hello_controller:
+      class: AppBundle\Controller\HelloController
+      arguments:
+        - @templating

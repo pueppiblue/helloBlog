@@ -38,20 +38,20 @@ class LuckyController
             array('luckyNumberList' => $numbersList)
         );
 
-        /*//render über render()-shortcut
-        return $this->render(
-            'lucky/number.html.twig',
-            array('luckyNumberList' => $numbersList)
-        );*/
+        //render über render()-Methode der Controller Superclass ('extends Controller' required)
+//        return $this->render(
+//            'lucky/number.html.twig',
+//            array('luckyNumberList' => $numbersList)
+//        );
 
-/*      //render über Container
-        $html = $this->container->get('templating')->render(
+      //render über Container (Container muss bei service-controllern per 'calls:' geadded werden)
+/*        $html = $this->container->get('templating')->render(
             'lucky/number.html.twig',
             array('luckyNumberList' => $numbersList)
         );
 
-        return new Response($html);
-*/
+        return new Response($html);*/
+
     }
 
 //    public function piNumberAction()

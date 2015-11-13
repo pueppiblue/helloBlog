@@ -16,3 +16,12 @@ home:
 lucky_number:
   path: /lucky/number/{count}
   defaults: {_controller: app.lucky_controller:numberAction}
+
+#service route
+hello:
+  path: /hello/{name}
+  defaults: {_controller: app.hello_controller:indexAction}
+
+#hello:
+#  path: /hello/{name}
+#  defaults: {_controller: AppBundle:Hello:index}
