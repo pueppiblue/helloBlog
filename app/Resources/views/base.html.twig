@@ -9,5 +9,12 @@
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        {% for flash_message in app.session.flashbag.get('notice') %}
+                <div class="flash-notice">
+                    Flash notice: <br/>
+                    {{ flash_message }}
+                </div>
+        {% endfor %}
     </body>
+
 </html>

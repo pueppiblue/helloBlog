@@ -1,6 +1,15 @@
+#lesen aller Routing Annotations im ControllerDirectory
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+hello:
+    resource: "hello_routing.yml"
+    prefix: /hello
+
+blog:
+    resource: "blog_routing.yml"
+    prefix: /blog
 
 home:
     path: /
@@ -16,12 +25,3 @@ home:
 lucky_number:
   path: /lucky/number/{count}
   defaults: {_controller: app.lucky_controller:numberAction}
-
-#service route
-hello:
-  path: /hello/{name}
-  defaults: {_controller: app.hello_controller:indexAction}
-
-#hello:
-#  path: /hello/{name}
-#  defaults: {_controller: AppBundle:Hello:index}

@@ -1,0 +1,14 @@
+{# app/Resources/views/hello/greet.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        Sie sehen Seite {{ blogPage }} des Blogs.
+    </div>
+    {% for entry in entryList %}
+        <div class="blogItem">
+              {{  entry }}
+        </div>
+    {% endfor %}
+
+{% endblock %}

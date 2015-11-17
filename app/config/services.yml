@@ -18,3 +18,9 @@ services:
       class: AppBundle\Controller\HelloController
       arguments:
         - @templating
+        - @session
+
+  app.blog_controller:
+      class: AppBundle\Controller\BlogController
+      arguments:
+        - @templating

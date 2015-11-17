@@ -1,0 +1,10 @@
+#app/config/blog_routing.yml
+blog:
+  path: /{page}
+  defaults: {_controller: app.blog_controller:indexAction, page: 1}
+  requirements:
+    page: \d+
+
+blog_show:
+  path: /{slug}
+  defaults: {_controller: app.blog_controller:showAction}

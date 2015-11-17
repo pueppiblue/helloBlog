@@ -1,0 +1,8 @@
+#service route
+hello_index:
+  path: /{name}
+  defaults: {_controller: app.hello_controller:indexAction}
+
+#hello:
+#  path: /hello/{name}
+#  defaults: {_controller: AppBundle:Hello:index}

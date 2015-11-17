@@ -10,14 +10,17 @@ namespace AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class HelloController
 {
     private $templating;
+    private $session;
 
-    public function __construct(EngineInterface $templating)
+    public function __construct(EngineInterface $templating, Session $session)
     {
         $this->templating = $templating;
+        $this->session = $session;
     }
 
 //    public function indexAction($name)
@@ -26,8 +29,9 @@ class HelloController
 //    }
 
     // render per injected templating service
-    public function  indexAction($name)
+    public function indexAction($name)
     {
+        $this->session->getFlashBag()->add('notice','Bist du geflashed?');
         return $this->templating->renderResponse(
             'hello/greet.html.twig',
             array('name' => $name)
